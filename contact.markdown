@@ -5,5 +5,7 @@ permalink: /about/contact/
 ---
 
 
-## Instagram
+# Instagram
 Contact me on instagram @andreas.kuenz
+
+# E-Mail
