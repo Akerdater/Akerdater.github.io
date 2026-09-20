@@ -290,3 +290,59 @@ a.sidebar-nav-item.sub-item:hover {
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.05);
 }
+/* --- Desktop-Anpassungen (ab 768px bzw. 48em) --- */
+@media (min-width: 48em) {
+  /* 1. SEITEN-LADE-ZUSTAND: Schaltet alle störenden Lanyon-Animationen beim Laden komplett ab */
+  body {
+    padding-left: 14rem !important;
+    transition: none !important;
+  }
+  .sidebar {
+    left: 0 !important;
+    visibility: visible !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+  }
+  .wrap {
+    margin-left: 0 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .sidebar-toggle {
+    left: 15rem !important;
+    right: auto !important;
+    transition: none !important;
+  }
+
+  /* 2. MANUELLER KLICK: Nur wenn aktiv geklickt wird, erlauben wir weiche Bewegungen */
+  body.sidebar-desktop-open, 
+  body.sidebar-desktop-open .sidebar, 
+  body.sidebar-desktop-open .wrap, 
+  body.sidebar-desktop-open .sidebar-toggle {
+    /* Keine Transition hier, damit beim Neuladen einer Seite nichts zuckt */
+  }
+
+  /* Wenn die Klasse per Klick entfernt wird (Sidebar wird ausgeblendet) */
+  body:not(.sidebar-desktop-open) {
+    padding-left: 0 !important;
+    transition: padding-left 0.3s ease-in-out !important;
+  }
+  body:not(.sidebar-desktop-open) .sidebar {
+    left: -14rem !important;
+    visibility: hidden !important;
+    transition: left 0.3s ease-in-out, visibility 0.3s !important;
+  }
+  body:not(.sidebar-desktop-open) .sidebar-toggle {
+    left: 1rem !important;
+    right: auto !important;
+    transition: left 0.3s ease-in-out !important;
+  }
+}
+
+/* --- Mobile-Anpassungen (unter 768px) --- */
+@media (max-width: 47.99em) {
+  .sidebar-toggle {
+    right: 1rem !important;
+    left: auto !important;
+  }
+}
