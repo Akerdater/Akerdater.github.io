@@ -5,10 +5,23 @@
 
   <body>
 
-    {% include sidebar.html %}
+    <!-- WICHTIG: Die Checkbox steuert das Ein- und Ausblenden der Sidebar -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
+    <!-- Die eigentliche Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p>{{ site.description }}</p>
+      </div>
+
+      {% include sidebar.html %}
+
+      <div class="sidebar-item">
+        <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- Wrap ist der Hauptinhalt der Website -->
     <div class="wrap">
       <div class="masthead">
         <div class="container">
@@ -24,8 +37,34 @@
       </div>
     </div>
 
+    <!-- Das Hamburger-Icon zum Klicken -->
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
     <script src='{{ site.baseurl }}/public/js/script.js'></script>
+    
+    <!-- JavaScript für das Aufklappen der Unterordner -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var toggles = document.querySelectorAll(".dropdown-toggle");
+        toggles.forEach(function(toggle) {
+          toggle.addEventListener("click", function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute("data-target");
+            var targetContainer = document.getElementById(targetId);
+            if (targetContainer) {
+              targetContainer.classList.toggle("is-open");
+            }
+          });
+        });
+
+        var activeSubItem = document.querySelector(".sidebar-nav-item.sub-item.active");
+        if (activeSubItem) {
+          var parentContainer = activeSubItem.closest(".sidebar-dropdown-container");
+          if (parentContainer) {
+            parentContainer.classList.add("is-open");
+          }
+        }
+      });
+    </script>
   </body>
 </html>

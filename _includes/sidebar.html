@@ -1,22 +1,33 @@
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<nav class="sidebar-nav">
+  {% for item in site.data.navigation %}
+    {% if item.subcategories %}
+      
+      {% capture dropdown_id %}dropdown-{{ forloop.index }}{% endcapture %}
 
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <img src="{{ '/assets/Bild2232.png' | relative_url }}" alt="Logo" style="max-width: 100%; height: auto; display: block; margin: 0 auto 1.5rem auto;">
-  </div>
+      <!-- Hauptkategorie MIT integriertem Klick-Befehl -->
+      <a class="sidebar-nav-item" href="#" onclick="var el = document.getElementById('{{ dropdown_id }}'); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; return false;">
+        {{ item.title }} ▾
+      </a>
+      
+      <!-- Unterordner-Links: Prüft direkt mit Liquid, ob einer der Unterpunkte aktiv ist, um offen zu bleiben -->
+      {% assign is_open = false %}
+      {% for subitem in item.subcategories %}
+        {% if page.url == subitem.url %}
+          {% assign is_open = true %}
+        {% endif %}
+      {% endfor %}
 
-  <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="{{ '/' | relative_url }}">Willkommen</a>
-    <a class="sidebar-nav-item" href="{{ '/about/' | relative_url }}">Über mich</a>
-    <a class="sidebar-nav-item" href="{{ '/contact/' | relative_url }}">Kontakt</a>
-  </nav>
+      <div id="{{ dropdown_id }}" class="sidebar-dropdown-container" style="display: {% if is_open %}block{% else %}none{% endif %};">
+        {% for subitem in item.subcategories %}
+          <a class="sidebar-nav-item sub-item {% if page.url == subitem.url %}active{% endif %}" href="{{ subitem.url | relative_url }}">
+            {{ subitem.title }}
+          </a>
+        {% endfor %}
+      </div>
 
-  <div class="sidebar-item">
-    <p>
-      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
-    </p>
-  </div>
-</div>
+    {% else %}
+      <!-- Standard-Menüpunkt -->
+      <a class="sidebar-nav-item {% if page.url == item.url %}active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>

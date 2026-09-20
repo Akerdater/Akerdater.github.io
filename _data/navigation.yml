@@ -1,0 +1,13 @@
+- title: Willkommen
+  url: /
+
+- title: Über mich
+  url: "#"
+  subcategories:
+    - title: Mein Lebenslauf
+      url: /ueber-mich/lebenslauf/
+    - title: Meine Projekte
+      url: /ueber-mich/projekte/
+
+- title: Kontakt
+  url: /contact/
