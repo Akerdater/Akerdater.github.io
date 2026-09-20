@@ -102,17 +102,20 @@
                 return;
               }
 
-              // Verhindert das sofortige Springen der Seite
+              // Holt die exakte, vollständige Ziel-URL der Jekyll-Unterseite
+              var targetUrl = this.href;
+
+              // Verhindert das sofortige unschöne Springen der Seite
               e.preventDefault();
               
               // Schließt die Sidebar zuerst (dadurch greift die CSS-Gleit-Animation)
               checkbox.checked = false;
               
-              // Wartet 150 Millisekunden, damit die Sidebar elegant einfahren kann,
+              // Wartet 250 Millisekunden, damit die Sidebar elegant einfahren kann,
               // und leitet erst DANN auf die neue Seite weiter
               setTimeout(function() {
-                window.location.href = href;
-              }, 150);
+                window.location.href = targetUrl;
+              }, 250);
             }
           });
         });
