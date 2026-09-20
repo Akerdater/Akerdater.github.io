@@ -1,13 +1,16 @@
 - title: Willkommen
   url: /
 
-- title: Über mich
+- title: Blockflöte
   url: "#"
   subcategories:
-    - title: Mein Lebenslauf
-      url: /ueber-mich/lebenslauf/
-    - title: Meine Projekte
-      url: /ueber-mich/projekte/
+    - title: Denner
+      url: /bf/Denner/
+    - title: Steenbergen
+      url: /bf/Steenbergen/
+
+- title: Über mich
+  url: /about/
 
 - title: Kontakt
   url: /contact/
