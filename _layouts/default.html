@@ -10,11 +10,18 @@
 
     <!-- Die eigentliche Sidebar -->
     <div class="sidebar" id="sidebar">
-      <div class="sidebar-item">
-        <p>{{ site.description }}</p>
+      <div class="sidebar-item" style="padding-bottom: 0; text-align: center;">
+        
+        <!-- DEIN NEUES LOGO BILD AUS DEM ASSETS ORDNER -->
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/Bild2232.png' | relative_url }}" alt="Kunz Logo" style="max-width: 200px; height: auto; border-radius: .25rem; display: block; margin: 0 auto 1rem auto;">
+        </a>
+        
+        <p style="margin-top: 0.5rem; font-size: 85%;">{{ site.description }}</p>
       </div>
 
       {% include sidebar.html %}
+
 
       <div class="sidebar-item">
         <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
