@@ -65,32 +65,21 @@
         // 2. DESKTOP & HANDY KLICK-LOGIK FÜR DIE MENÜSTRICHE
         toggleBtn.addEventListener("click", function(e) {
           if (window.innerWidth >= 768) {
-            // Auf Desktop verhindern wir das normale Checkbox-Verhalten und nutzen unsere CSS-Klasse
             e.preventDefault();
             body.classList.toggle("sidebar-desktop-open");
           }
         });
 
-        // 3. HANDY-LOGIK: Sidebar NUR bei echten Links schliessen (Dropdown-Toggles ausschliessen)
-        var sidebarLinks = document.querySelectorAll(".sidebar a");
-        sidebarLinks.forEach(function(link) {
-          link.addEventListener("click", function(e) {
-            if (window.innerWidth < 768) {
-              // PRÜFUNG: Wenn der geklickte Link die Klasse "dropdown-toggle" hat, NICHT schliessen!
-              if (this.classList.contains("dropdown-toggle")) {
-                return; 
-              }
-              // Bei allen anderen echten Links schliesst die Sidebar normal
-              checkbox.checked = false;
-            }
-          });
-        });
-
-        /* --- DEIN BESTEHENDER CODE FÜR UNTERORDNER (UNVERÄNDERT) --- */
+        // 3. EXPAND/COLLAPSE FÜR UNTERORDNER (Desktop & Mobil)
         var toggles = document.querySelectorAll(".dropdown-toggle");
         toggles.forEach(function(toggle) {
           toggle.addEventListener("click", function(e) {
             e.preventDefault();
+            
+            // WICHTIG FÜR HANDY: Stoppt das originale Lanyon-Skript (script.js), 
+            // damit die Sidebar bei diesem Klick NICHT automatisch geschlossen wird!
+            e.stopPropagation(); 
+
             var targetId = this.getAttribute("data-target");
             var targetContainer = document.getElementById(targetId);
             if (targetContainer) {
@@ -99,6 +88,28 @@
           });
         });
 
+        // 4. HANDY-LOGIK FÜR ECHTE LINKS: Sidebar nur schließen, wenn eine neue Seite geladen wird
+        var sidebarLinks = document.querySelectorAll(".sidebar a");
+        sidebarLinks.forEach(function(link) {
+          link.addEventListener("click", function(e) {
+            if (window.innerWidth < 768) {
+              // Wenn es ein Unterordner-Öffner ist, machen wir hier nichts (wurde in Schritt 3 geregelt)
+              if (this.classList.contains("dropdown-toggle")) {
+                return;
+              }
+              
+              var href = this.getAttribute("href");
+              if (!href || href === "#" || href === "") {
+                return;
+              }
+
+              // Bei allen echten Seiten-Links (Willkommen, Denner, Steenbergen, Über mich) schliessen
+              checkbox.checked = false;
+            }
+          });
+        });
+
+        // Aktiven Unterordner geöffnet lassen beim Seitenwechsel
         var activeSubItem = document.querySelector(".sidebar-nav-item.sub-item.active");
         if (activeSubItem) {
           var parentContainer = activeSubItem.closest(".sidebar-dropdown-container");
