@@ -292,7 +292,6 @@ a.sidebar-nav-item.sub-item:hover {
 }
 /* --- Desktop-Anpassungen (ab 768px bzw. 48em) --- */
 @media (min-width: 48em) {
-  /* 1. SEITEN-LADE-ZUSTAND: Schaltet alle störenden Lanyon-Animationen beim Laden komplett ab */
   body {
     padding-left: 14rem !important;
     transition: none !important;
@@ -314,15 +313,6 @@ a.sidebar-nav-item.sub-item:hover {
     transition: none !important;
   }
 
-  /* 2. MANUELLER KLICK: Nur wenn aktiv geklickt wird, erlauben wir weiche Bewegungen */
-  body.sidebar-desktop-open, 
-  body.sidebar-desktop-open .sidebar, 
-  body.sidebar-desktop-open .wrap, 
-  body.sidebar-desktop-open .sidebar-toggle {
-    /* Keine Transition hier, damit beim Neuladen einer Seite nichts zuckt */
-  }
-
-  /* Wenn die Klasse per Klick entfernt wird (Sidebar wird ausgeblendet) */
   body:not(.sidebar-desktop-open) {
     padding-left: 0 !important;
     transition: padding-left 0.3s ease-in-out !important;
@@ -344,5 +334,11 @@ a.sidebar-nav-item.sub-item:hover {
   .sidebar-toggle {
     right: 1rem !important;
     left: auto !important;
+  }
+
+  /* Zwingt die Sidebar und den Content zu einer sauberen, synchronen Gleitbewegung */
+  body, .sidebar, .wrap {
+    transition: transform 0.25s ease-in-out, left 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
+    -webkit-transition: -webkit-transform 0.25s ease-in-out, left 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
   }
 }
