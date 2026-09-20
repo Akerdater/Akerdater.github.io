@@ -27,7 +27,7 @@ twitter_username: noch nichts
 github_username:  noch nichts
 
 # Build settings
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
 
