@@ -9,9 +9,9 @@ categories: bf
   <iframe
     src="https://www.youtube.com/embed/rB7BjuEEeRw"
     title="YouTube Short"
-    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 </div>
+
 
