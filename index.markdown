@@ -6,19 +6,17 @@ title: Willkommen
 
 <div class="posts">
   {% for post in site.posts %}
-    <article class="post">
-      <h1 class="post-title">
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title }}
-        </a>
-      </h1>
-      <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">
-        {{ post.date | date_to_string }}
-      </time>
-      {{ post.content }}
-    </article>
+  <div class="post" style="margin-bottom: 1.5rem;">
+    <h2 class="post-title">
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+<span class="post-date" style="font-size: 0.85rem; color: #9a9a9a; display: block;">
+  {{ post.date | date: "%d.%m.%Y" }}
+</span>
+
+  </div>
   {% endfor %}
 </div>
-
-
 
