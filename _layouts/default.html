@@ -28,27 +28,35 @@
       </div>
     </div>
 
-    <!-- Wrap ist der Hauptinhalt der Website -->
+     <!-- Wrap ist der Hauptinhalt der Website -->
     <div class="wrap">
-       <!-- INTELLIGENTER OBERER BALKEN -->
-      <div class="masthead">
-        <div class="container" style="display: flex; justify-content: center; align-items: center; position: relative; min-height: 50px;">
-          <h3 class="masthead-title" style="margin-top: 0; margin-bottom: 0; text-align: center; width: 100%;">
+       <!-- INTELLIGENTER OBERER BALKEN (Höherer Kasten für eine stabile, tiefere Linie) -->
+      <div class="masthead" style="padding: 0 !important; margin-bottom: 0;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center; position: relative; height: 120px; padding-top: 0 !important; padding-bottom: 0 !important;">
+
+          <h3 class="masthead-title" style="margin-top: 0; margin-bottom: 0; text-align: center; width: 100%; display: flex; justify-content: center; align-items: center; height: 100%;">
             
-            <a href="{{ site.baseurl }}/" title="Home" style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center;">
+            <a href="{{ site.baseurl }}/" title="Home" style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center; height: 100px; width: 100%; text-decoration: none;">
               
-              <!-- 1. DER TEXT: Sieht bei offener Sidebar genau aus wie jetzt -->
-              <span class="masthead-text-only" style="font-weight: normal; color: #222;">{{ site.title }}</span>
-              <small class="masthead-text-only" style="font-size: 60%; color: #999; margin-top: 4px; font-weight: normal; font-family: sans-serif;">recorder player & &ldquo;maker&rdquo;</small>
+              <!-- 1. DER TEXT: Wird in den 100px Höhe automatisch perfekt vertikal eingemittet -->
+              <span class="masthead-text-only" style="font-weight: normal; color: #222; line-height: 1.2;">{{ site.title }}</span>
+              <small class="masthead-text-only" style="font-size: 60%; color: #999; margin-top: 6px; font-weight: normal; font-family: sans-serif;">recorder player & &ldquo;maker&rdquo;</small>
               
-              <!-- 2. DAS LOGO: Erscheint nur, wenn die Sidebar geschlossen wird -->
-              <img class="masthead-logo-only" src="{{ '/assets/Bild2232.png' | relative_url }}" alt="Logo" style="height: 90px; width: auto; border-radius: 4px;">
+              <!-- 2. DAS LOGO: Hat jetzt volle 100px Platz und bleibt wunderschön quadratisch -->
+              <img class="masthead-logo-only" src="{{ '/assets/Bild2232.png' | relative_url }}" alt="Logo" style="height: 100px; width: 100px; object-fit: contain; display: block; margin: 0 auto;">
               
             </a>
 
           </h3>
         </div>
       </div>
+
+      <!-- Abstand (Luft) unterhalb der tieferen, stabilen Trennlinie -->
+      <div class="container content" style="margin-top: 30px !important;">
+
+
+
+
 
       <!-- ZUGEHÖRIGES CSS FÜR DEN WECHSEL -->
       <style>
