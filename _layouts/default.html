@@ -30,14 +30,27 @@
 
     <!-- Wrap ist der Hauptinhalt der Website -->
     <div class="wrap">
+      <!-- HIER IST DIE ANPASSUNG FÜR DEN OBEREN BALKEN -->
       <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; position: relative; min-height: 50px;">
+          <h3 class="masthead-title" style="margin-top: 0; margin-bottom: 0; text-align: center; width: 100%;">
+            
+            <!-- Link zum Home mit deinem Namen (wird zentriert) -->
+            <a href="{{ site.baseurl }}/" title="Home" style="display: inline-flex; align-items: center; justify-content: center;">
+              
+              <!-- OPTION: Wenn du ein kleines Logo LINKS neben dem Namen willst, entferne die zwei Striche am Anfang der nächsten Zeile: -->
+              <!-- <img src="{{ '/assets/Bild2232.png' | relative_url }}" alt="Logo" style="height: 28px; width: auto; margin-right: 10px; border-radius: 2px;"> -->
+              
+              {{ site.title }}
+            </a>
+
+            <!-- OPTION: Wenn du einen festen Untertitel willst, kannst du ihn hier eintragen (oder leer lassen) -->
+            <small style="display: block; font-size: 60%; color: #999; margin-top: 4px;">recorder player & "maker"</small>
+            
           </h3>
         </div>
       </div>
+
 
       <div class="container content">
         {{ content }}
