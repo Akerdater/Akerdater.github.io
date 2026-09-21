@@ -350,3 +350,7 @@ a.sidebar-nav-item.sub-item:hover {
     -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
+.sidebar-nav-item:first-of-type,
+.sidebar-nav .sidebar-nav-item:first-child {
+  margin-top: 2.5rem; /* Erhöhe diesen Wert (z. B. auf 3rem oder 4rem) für mehr Abstand */
+}
