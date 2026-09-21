@@ -4,4 +4,3 @@ title: Denner
 permalink: /bf/Denner/
 ---
 
-### Denner

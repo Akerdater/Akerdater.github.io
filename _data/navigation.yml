@@ -4,11 +4,23 @@
 - title: Blockflöte
   url: "#"
   subcategories:
+    - title: Bressan
+      url: /bf/Bressan/
+    - title: Stanesby
+      url: /bf/Stanesby/
     - title: Denner
       url: /bf/Denner/
     - title: Steenbergen
       url: /bf/Steenbergen/
+    - title: Manzoni
+      url: /bf/Manzoni/
 
+- title: Flageolett
+  url: "#"
+  subcategories:
+  - title: Camus in Paris
+    url: /fl/camus-in-paris/
+    
 - title: Über mich
   url: /about/
 
