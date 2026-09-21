@@ -2,8 +2,7 @@
 layout: default
 title: Willkommen
 ---
-
-Hallo, was geht?
+<img src="{{ site.baseurl }}/assets/Flageolett.webp" alt="Startbild" style="width: 100%; max-width: 100%; height: auto; display: block; margin-bottom: 2rem;">
 
 <div class="posts">
   {% for post in site.posts %}
