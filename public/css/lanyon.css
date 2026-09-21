@@ -271,10 +271,13 @@ a.sidebar-nav-item:focus {
 .sidebar-dropdown-container {
   display: none;
   background-color: rgba(255, 255, 255, 0.03);
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 .sidebar-dropdown-container.is-open {
-  display: block;
+  display: block !important;
 }
 
 a.sidebar-nav-item.sub-item {
@@ -282,14 +285,17 @@ a.sidebar-nav-item.sub-item {
   font-size: 85% !important;        /* Macht die Unterpunkte dezent kleiner */
   opacity: 0.75;                   /* Etwas blassere Farbe für bessere Hierarchie */
   border-top: none !important;     /* Verhindert dicke graue Trennlinien innen */
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
 }
 
 a.sidebar-nav-item.sub-item:hover {
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.05);
 }
+
 /* --- Desktop-Anpassungen (ab 768px bzw. 48em) --- */
 @media (min-width: 48em) {
   body {
@@ -350,7 +356,19 @@ a.sidebar-nav-item.sub-item:hover {
     -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
+
+/* --- Abstand über dem ersten Navigationselement --- */
 .sidebar-nav-item:first-of-type,
 .sidebar-nav .sidebar-nav-item:first-child {
-  margin-top: 2.5rem; /* Erhöhe diesen Wert (z. B. auf 3rem oder 4rem) für mehr Abstand */
+  margin-top: 2.5rem; 
+}
+
+/* --- Scrollbalken-Fixes (Unsichtbar machen für alle Browser) --- */
+.sidebar {
+    -ms-overflow-style: none !important;  /* IE und Edge */
+    scrollbar-width: none !important;     /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none !important;             /* Chrome, Safari, Opera */
 }
